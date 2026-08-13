@@ -1,0 +1,15 @@
+{
+	"name": "df-stefazureproject",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "germanywestcentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "590c8718-918c-4dca-b48e-5e5b28515faa",
+		"tenantId": "7e185ec6-ac86-4ef6-b3ab-f0e224a21cd6"
+	}
+}
