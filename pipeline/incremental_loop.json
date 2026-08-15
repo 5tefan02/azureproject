@@ -8,6 +8,10 @@
 				"dependsOn": [],
 				"userProperties": [],
 				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.loop_input",
+						"type": "Expression"
+					},
 					"isSequential": true,
 					"activities": [
 						{
@@ -257,8 +261,11 @@
 												"type": "DatasetReference",
 												"parameters": {
 													"container": "bronze",
-													"folder": "cdc",
-													"file": "empty.json"
+													"folder": {
+														"value": "@{item().table}_cdc",
+														"type": "Expression"
+													},
+													"file": "cdc.json"
 												}
 											}
 										],
@@ -272,7 +279,7 @@
 														"value": "@{item().table}_cdc",
 														"type": "Expression"
 													},
-													"file": "empty.json"
+													"file": "cdc.json"
 												}
 											}
 										]
@@ -320,31 +327,31 @@
 					{
 						"schema": "dbo",
 						"table": "DimUser",
-						"cdc_col": "updated_at",
+						"cdc": "updated_at",
 						"from_date": ""
 					},
 					{
 						"schema": "dbo",
 						"table": "DimTrack",
-						"cdc_col": "updated_at",
+						"cdc": "updated_at",
 						"from_date": ""
 					},
 					{
 						"schema": "dbo",
 						"table": "DimDate",
-						"cdc_col": "date",
+						"cdc": "date",
 						"from_date": ""
 					},
 					{
 						"schema": "dbo",
 						"table": "DimArtist",
-						"cdc_col": "updated_at",
+						"cdc": "updated_at",
 						"from_date": ""
 					},
 					{
 						"schema": "dbo",
 						"table": "FactStream",
-						"cdc_col": "stream_timestamp",
+						"cdc": "stream_timestamp",
 						"from_date": ""
 					}
 				]
