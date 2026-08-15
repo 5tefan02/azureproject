@@ -265,7 +265,7 @@
 														"value": "@{item().table}_cdc",
 														"type": "Expression"
 													},
-													"file": "cdc.json"
+													"file": "empty.json"
 												}
 											}
 										],
@@ -279,7 +279,7 @@
 														"value": "@{item().table}_cdc",
 														"type": "Expression"
 													},
-													"file": "cdc.json"
+													"file": "empty.json"
 												}
 											}
 										]
