@@ -1,0 +1,15 @@
+{
+	"name": "stef-df-azureproject",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "germanywestcentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "66ef4cf0-3197-41d2-9603-0bb3d23e0f89",
+		"tenantId": "f04f0605-e166-4ade-9249-a154e33d7b31"
+	}
+}
