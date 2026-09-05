@@ -845,6 +845,38 @@
 								}
 							]
 						}
+					},
+					{
+						"name": "ALERTS",
+						"type": "WebActivity",
+						"dependsOn": [
+							{
+								"activity": "ForEach1",
+								"dependencyConditions": [
+									"Failed",
+									"Skipped",
+									"Completed",
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"method": "POST",
+							"headers": {},
+							"url": "https://prod-21.germanywestcentral.logic.azure.com:443/workflows/6d719de307714d9fadaec80655c25a08/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=Uelj9cfpwVwsBfHSl4w4xAN7ZA7j1iKsJ78dsdlV-B8",
+							"body": {
+								"value": "{\n    \"pipeline_name\" : \"@{pipeline().Pipeline}\",\n    \"pipepine_runId\" : \"@{pipeline().RunId}\"\n\n}",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"policy": {
