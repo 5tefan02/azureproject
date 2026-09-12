@@ -3,6 +3,8 @@
 
 An end-to-end data engineering project that builds a complete data pipeline and warehouse for Spotify streaming data. Data flows from Azure SQL Database through Azure Data Factory into ADLS Gen2, gets transformed in Databricks using the medallion architecture and lands in a Unity Catalog-governed data warehouse with SCD Type 2 history tracking.
 
+![Architecture](images/architecture.png)
+
 ## Tech Stack
 
 - **Azure SQL Database** — source system holding raw Spotify data (users, artists, tracks, streams, dates)
@@ -41,6 +43,8 @@ The warehouse uses a star schema with five tables:
 | DimTrack | Dimension | track_id | Track details with name, genre, duration |
 | DimArtist | Dimension | artist_id | Artist information with name, genre, country |
 | DimDate | Dimension | date_key | Calendar dimension for time-based analysis |
+
+![Star Schema](images/star-schema.png)
 
 ## Key Implementation Details
 
