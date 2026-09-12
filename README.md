@@ -36,43 +36,6 @@ The warehouse uses a star schema with five tables:
 | DimArtist | Dimension | artist_id | Artist information with name, genre, country |
 | DimDate | Dimension | date_key | Calendar dimension for time-based analysis |
 
-## Project Structure
-
-```
-azureproject/
-├── dataset/                          # Data Factory dataset definitions
-│   ├── azure_sql.json
-│   ├── json_dynamic.json
-│   └── parquet_dynamic.json
-├── factory/                          # Data Factory instance config
-│   └── stef-df-azureproject.json
-├── linkedService/                    # Data Factory connections
-│   ├── azure_sql.json
-│   └── datalake.json
-├── pipeline/                         # Data Factory pipelines
-│   ├── incremental_ingestion.json
-│   └── incremental_loop.json
-├── src/
-│   ├── silver/
-│   │   └── silver_dimensions.ipynb   # Bronze → Silver transformations
-│   ├── gold/
-│   │   └── dlt/
-│   │       └── transformations/      # Delta Live Tables definitions
-│   │           ├── DimUser.py
-│   │           ├── DimTrack.py
-│   │           ├── DimArtist.py
-│   │           ├── DimDate.py
-│   │           └── FactStream.py
-│   └── jinja/
-│       └── jinja_notebook.ipynb      # Dynamic SQL generation with Jinja
-├── utils/
-│   └── transformations.py            # Reusable transformation functions
-├── resources/
-│   └── spotify_dab_etl.pipeline.yml  # DAB pipeline definition
-├── databricks.yml                    # Databricks Asset Bundle config
-└── README.md
-```
-
 ## Key Implementation Details
 
 ### Incremental Ingestion (Data Factory)
