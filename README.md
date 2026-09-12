@@ -28,6 +28,8 @@ The project follows the **medallion architecture** with three layers:
 
 **Gold (business-ready)** — Delta Live Tables read from silver and apply SCD Type 2 (Slowly Changing Dimensions) to track historical changes. The gold layer is the final, query-ready warehouse.
 
+![DLT Pipeline Graph](images/dlt-pipeline-graph.png)
+
 ## Data Model
 
 The warehouse uses a star schema with five tables:
@@ -106,6 +108,8 @@ The project runs on:
 - **Azure Databricks** workspace with Unity Catalog and serverless compute
 - **Access Connector for Azure Databricks** with system-assigned managed identity and `Storage Blob Data Contributor` role on the storage account
 - **Unity Catalog metastore** with storage credential and external locations for governed access to ADLS
+
+![Unity Catalog](images/unity-catalog.png)
 
 ## How to Reproduce
 
