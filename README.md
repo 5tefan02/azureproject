@@ -20,6 +20,8 @@ The project follows the **medallion architecture** with three layers:
 
 **Bronze (raw)** — Data lands here exactly as it comes from Azure SQL, in Parquet format. No transformations, no cleaning. This is the single source of truth for raw data. Data Factory handles incremental ingestion using CDC (Change Data Capture), pulling only new or updated records from the source.
 
+![Data Factory Pipeline](images/data-factory-pipeline.png)
+
 **Silver (cleaned)** — Auto Loader reads new files from bronze incrementally, applies transformations (deduplication, type casting, text normalization, column cleanup), and writes clean Delta tables. Each dimension and fact table has its own processing block with checkpoint-based incremental processing.
 
 **Gold (business-ready)** — Delta Live Tables read from silver and apply SCD Type 2 (Slowly Changing Dimensions) to track historical changes. The gold layer is the final, query-ready warehouse.
