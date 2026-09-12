@@ -24,6 +24,8 @@ The project follows the **medallion architecture** with three layers:
 
 **Silver (cleaned)** — Auto Loader reads new files from bronze incrementally, applies transformations (deduplication, type casting, text normalization, column cleanup), and writes clean Delta tables. Each dimension and fact table has its own processing block with checkpoint-based incremental processing.
 
+![Silver Notebook](images/silver-notebook.png)
+
 **Gold (business-ready)** — Delta Live Tables read from silver and apply SCD Type 2 (Slowly Changing Dimensions) to track historical changes. The gold layer is the final, query-ready warehouse.
 
 ## Data Model
