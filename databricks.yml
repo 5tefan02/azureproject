@@ -1,0 +1,34 @@
+bundle:
+  name: spotify_dab
+  uuid: 61a36ae5-215a-460a-86fc-e1907d5a91e4
+
+include:
+  - resources/*.yml
+
+variables:
+  catalog:
+    default: spotify_data
+  schema:
+    default: gold
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://adb-7405615211419391.11.azuredatabricks.net
+      root_path: ~/SpotifyAzureProject/.bundle/${bundle.name}/${bundle.target}
+    presets:
+      source_linked_deployment: false
+
+  prod:
+    mode: production
+    workspace:
+      host: http://127.0.0.1:7073
+      root_path: /Workspace/Users/scutarustefan69@gmail.com/.bundle/${bundle.name}/${bundle.target}
+    variables:
+      catalog: spotify_data
+      schema: gold
+    permissions:
+      - user_name: scutarustefan69@gmail.com
+        level: CAN_MANAGE

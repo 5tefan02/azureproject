@@ -1,0 +1,18 @@
+# The main pipeline for spotify_dab
+
+resources:
+  pipelines:
+    spotify_dab_etl:
+      name: gold_pipeline
+      catalog: ${var.catalog}
+      schema: ${var.schema}
+      serverless: true
+      root_path: "../src/gold/dlt"
+
+      libraries:
+        - glob:
+            include: ../src/gold/dlt/transformations/**
+
+      environment:
+        dependencies:
+          - ../pyproject.toml
